@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <ul>
+                <li><a href="/dashboard">Panel główny</a></li>
+                <li><a href="/history">Historia</a></li>
+                <li><a href="/logout">Wyloguj się</a></li>
+            </ul>
+        </nav>
+        <main class="content">
+            <header>
+                <h1>NutriTrack</h1>
+                <p>Prosta i intuicyjna aplikacja do śledzenia spożycia posiłków i monitorowania wartości odżywczych.</p>
+            </header>
+            <section id="calorie-tracker">
+                <h2>Kalorie dzienne</h2>
+                <div class="goal-input">
+                    <input type="number" id="daily-calorie-goal" placeholder="Ustal cel kalorii" required>
+                    <button onclick="setDailyCalorieGoal()">Ustal cel</button>
+                </div>
+                <div id="calorie-summary">
+                    <div id="calorie-apple" class="progress-circle">
+                        <p id="calories-left">0</p>
+                        <p>Left</p>
+                        <p id="calories-consumed">0</p>
+                    </div>
+                    <div class="nutrient-circles">
+                        <div class="nutrient-goal">
+                            <input type="number" id="protein-goal" placeholder="Cel białka (g)" required>
+                            <button onclick="setProteinGoal()">Ustal cel</button>
+                            <div id="protein-apple" class="progress-circle">
+                                <p id="protein-left">0</p>
+                                <p>Left</p>
+                                <p id="protein-consumed">0</p>
+                            </div>
+                        </div>
+                        <div class="nutrient-goal">
+                            <input type="number" id="carbs-goal" placeholder="Cel węglowodanów (g)" required>
+                            <button onclick="setCarbsGoal()">Ustal cel</button>
+                            <div id="carbs-apple" class="progress-circle">
+                                <p id="carbs-left">0</p>
+                                <p>Left</p>
+                                <p id="carbs-consumed">0</p>
+                            </div>
+                        </div>
+                        <div class="nutrient-goal">
+                            <input type="number" id="fat-goal" placeholder="Cel tłuszczu (g)" required>
+                            <button onclick="setFatGoal()">Ustal cel</button>
+                            <div id="fat-apple" class="progress-circle">
+                                <p id="fat-left">0</p>
+                                <p>Left</p>
+                                <p id="fat-consumed">0</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="meal-summary">
+                        <p>Śniadanie: <span id="breakfast-calories">0</span></p>
+                        <p>Lunch: <span id="lunch-calories">0</span></p>
+                        <p>Obiad: <span id="dinner-calories">0</span></p>
+                        <p>Przekąski: <span id="snacks-calories">0</span></p>
+                    </div>
+                </div>
+            </section>
+            <section id="meal-form">
+                <h2>Dodaj posiłek</h2>
+                <form id="add-meal-form">
+                    <label for="meal-name">Nazwa posiłku:</label>
+                    <input type="text" id="meal-name" required>
+
+                    <label for="meal-type">Typ posiłku:</label>
+                    <select id="meal-type" required>
+                        <option value="breakfast">Śniadanie</option>
+                        <option value="lunch">Lunch</option>
+                        <option value="dinner">Obiad</option>
+                        <option value="snacks">Przekąski</option>
+                    </select>
+
+                    <label for="calories">Kalorie:</label>
+                    <input type="number" id="calories" required>
+
+                    <label for="protein">Białko (g):</label>
+                    <input type="number" id="protein" required>
+
+                    <label for="carbs">Węglowodany (g):</label>
+                    <input type="number" id="carbs" required>
+
+                    <label for="fat">Tłuszcze (g):</label>
+                    <input type="number" id="fat" required>
+
+                    <button type="submit">Dodaj posiłek</button>
+                </form>
+                <button onclick="endDay()">Zakończ Dzień</button>
+            </section>
+            <section id="date-picker">
+                <h2>Wybierz dzień</h2>
+                <input type="date" id="selected-date">
+                <button onclick="setSelectedDate()">Wybierz dzień</button>
+            </section>
+        </main>
+    </div>
+    <script src="/script.js"></script>
+</body>
+</html>
+
